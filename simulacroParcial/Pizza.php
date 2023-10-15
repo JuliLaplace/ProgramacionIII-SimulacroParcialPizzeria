@@ -10,14 +10,15 @@ class Pizza{
     public $tipo;
     public $cantidad;
     public $id;
+    private static $siguienteId = 1;
 
 
     public function __construct($sabor, $precio, $tipo, $cantidad) {
+        $this->id = self::$siguienteId++; //se asigna y despues incrementa
         $this->sabor = $sabor;
         $this->precio = $precio;
         $this->tipo = $tipo;
         $this->cantidad = $cantidad;
-        $this->id = rand(1, 10000);
     }
 
 
@@ -91,6 +92,8 @@ class Pizza{
     static function AgregarStockDePizza($pizza){
         $retorno=false;
         $pizzasAux = ArchivosJson::LeerListaPizzas();
+        var_dump($pizzasAux);
+        echo"********************************************";
         if($pizzasAux!=null){
             foreach($pizzasAux as $item){
                 if($pizza->Equals($item)){
@@ -98,6 +101,7 @@ class Pizza{
                     $item->cantidad += $pizza->cantidad;
                 }
             }
+            var_dump($pizzasAux);
             if(file_put_contents("pizzas.json", json_encode($pizzasAux, JSON_PRETTY_PRINT))!= false){
                 $retorno = true;
             }

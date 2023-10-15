@@ -1,0 +1,16 @@
+[
+    {
+        "sabor": "muzzarella",
+        "precio": 3500,
+        "tipo": "molde",
+        "cantidad": 51,
+        "id": 1
+    },
+    {
+        "sabor": "napolitana",
+        "precio": 4500,
+        "tipo": "piedra",
+        "cantidad": 5,
+        "id": 2
+    }
+]

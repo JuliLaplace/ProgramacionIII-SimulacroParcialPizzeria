@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "2195dddd-b4a8-4922-a24d-bad31a704b74",
+		"name": "SimulacroParcial - 1ra parte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29666411"
+	},
+	"item": [
+		{
+			"name": "Valores de pizza correctos - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=muzzArella&precio=3500&tipo=moLde&cantidad=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "muzzArella"
+						},
+						{
+							"key": "precio",
+							"value": "3500"
+						},
+						{
+							"key": "tipo",
+							"value": "moLde"
+						},
+						{
+							"key": "cantidad",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valores precio de pizza negativo - informa correctamente que hay  error en datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=muzzArella&precio=-2300&tipo=moLde&cantidad=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "muzzArella"
+						},
+						{
+							"key": "precio",
+							"value": "-2300"
+						},
+						{
+							"key": "tipo",
+							"value": "moLde"
+						},
+						{
+							"key": "cantidad",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valores precio de pizza mayor a 10000(limite) - informa correctamente que hay error en datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=muzzArella&precio=10001&tipo=moLde&cantidad=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "muzzArella"
+						},
+						{
+							"key": "precio",
+							"value": "10001"
+						},
+						{
+							"key": "tipo",
+							"value": "moLde"
+						},
+						{
+							"key": "cantidad",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valor de cantidad de pizzas 10000000 - informa correctamente que hay error en datos (hasta 50 pizzas se puede cargar)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=muzzArela&precio=10001&tipo=moLde&cantidad=10000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "muzzArela"
+						},
+						{
+							"key": "precio",
+							"value": "10001"
+						},
+						{
+							"key": "tipo",
+							"value": "moLde"
+						},
+						{
+							"key": "cantidad",
+							"value": "10000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valor de sabor muzzarella en mayuscula  - Actualiza correctamente (dato guardado en json en minuscula)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=MUZZARELLA&precio=3500&tipo=molde&cantidad=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "MUZZARELLA"
+						},
+						{
+							"key": "precio",
+							"value": "3500"
+						},
+						{
+							"key": "tipo",
+							"value": "molde"
+						},
+						{
+							"key": "cantidad",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valor de sabor napolitana con tipo \"PIEDRA\" en mayuscula  - Guarda correctamente como nuevo sabor y \"piedra\" todo en minuscula",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=Napolitana&precio=4500&tipo=PIEDRA&cantidad=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "Napolitana"
+						},
+						{
+							"key": "precio",
+							"value": "4500"
+						},
+						{
+							"key": "tipo",
+							"value": "PIEDRA"
+						},
+						{
+							"key": "cantidad",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falta dato \"cantidad\" - informa correctamente que hay error en ingreso de datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=Napolitana&precio=4500&tipo=PIEDRA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "Napolitana"
+						},
+						{
+							"key": "precio",
+							"value": "4500"
+						},
+						{
+							"key": "tipo",
+							"value": "PIEDRA"
+						},
+						{
+							"key": "cantidad",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dato \"cantidad\" vacío - informa correctamente que hay error en ingreso de datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/?sabor=Napolitana&precio=4500&tipo=PIEDRA&cantidad=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "Napolitana"
+						},
+						{
+							"key": "precio",
+							"value": "4500"
+						},
+						{
+							"key": "tipo",
+							"value": "PIEDRA"
+						},
+						{
+							"key": "cantidad",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion GET sin datos - Informa correctamente  que faltan datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "Napolitana",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "4500",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "PIEDRA",
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion POST con datos correctos - Informa correctamente que si hay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "napolitana",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "piedra",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion POST con dato piedra en mayuscula - Informa correctamente que si hay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "napolitana",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "PIEDRA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion POST con dato tipo = molde - Informa correctamente que no hay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "napolitana",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "molde",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion POST con dato tipo vacio - Informa correctamente que faltan datos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "papa",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion POST sin dato tipo - Informa correctamente que faltan datos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "papa",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/SimulacroParcialPrimeraParte/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"SimulacroParcialPrimeraParte",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
